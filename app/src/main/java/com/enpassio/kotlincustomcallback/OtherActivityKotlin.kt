@@ -29,14 +29,12 @@ class OtherActivityKotlin : AppCompatActivity() {
 
         /*
         Issue below
+        */
+        ((AppConstant.context as PassedMessage).messagePassedIs(message))
 
-        val passedMessage =  object :PassedMessage{}
-        passedMessage.messagePassedIs(message)
-         */
     }
 
     interface PassedMessage {
-
         fun messagePassedIs(messagePassed: String)
     }
 

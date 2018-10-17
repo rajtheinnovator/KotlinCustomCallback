@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import kotlinx.android.parcel.Parcelize;
+
 public class OtherActivityJava extends AppCompatActivity {
 
     PassedMessage passedMessage;
@@ -17,6 +19,7 @@ public class OtherActivityJava extends AppCompatActivity {
         setContentView(R.layout.activity_other);
 
         //initialize the callback
+        //passedMessage = ((PassedMessage) MainActivity.this))
 
         final EditText messageEditText = findViewById(R.id.messageEditText);
         Button passMessageButton = findViewById(R.id.passMessageButton);
@@ -29,5 +32,10 @@ public class OtherActivityJava extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Parcelize
+    interface PassedMessage {
+        void messagePassedIs(String messagePassed);
     }
 }
