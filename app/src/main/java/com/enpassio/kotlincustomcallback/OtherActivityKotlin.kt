@@ -6,15 +6,8 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 
-class OtherActivity : AppCompatActivity() {
+class OtherActivityKotlin : AppCompatActivity() {
 
-    companion object {
-        //  val TAG:String = OtherActivity::class.java.simpleName
-        val TAG: String = "my_tag"
-    }
-
-    lateinit var passMessageButton: Button
-    lateinit var messageEditText: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,12 +29,23 @@ class OtherActivity : AppCompatActivity() {
 
         /*
         Issue below
-        */
-        val passedMessage = object : PassedMessage {}
+
+        val passedMessage =  object :PassedMessage{}
         passedMessage.messagePassedIs(message)
+         */
     }
 
     interface PassedMessage {
+
         fun messagePassedIs(messagePassed: String)
     }
+
+
+    companion object {
+        //  val TAG:String = OtherActivityJava::class.java.simpleName
+        val TAG: String = "my_tag"
+    }
+
+    lateinit var passMessageButton: Button
+    lateinit var messageEditText: EditText
 }

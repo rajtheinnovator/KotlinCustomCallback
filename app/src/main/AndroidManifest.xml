@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".OtherActivity"
+            android:name=".OtherActivityJava"
             android:label="OtherActivity"
             android:parentActivityName=".MainActivity" />
     </application>

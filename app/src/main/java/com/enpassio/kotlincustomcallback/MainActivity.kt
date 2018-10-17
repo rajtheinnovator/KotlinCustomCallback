@@ -7,7 +7,21 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 
-class MainActivity : AppCompatActivity(), OtherActivity.PassedMessage {
+class MainActivity : AppCompatActivity(), PassedMessage {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        button = findViewById(R.id.button)
+        receivedMessageTextView = findViewById(R.id.received_message_text_view)
+        button.setOnClickListener { startActivity(Intent(this@MainActivity, OtherActivityJava::class.java)) }
+    }
+
+    override fun messagePassedIs(messageReceived: String) {
+        //on receiving the message, set it on receivedMessageTextView
+        Log.d(TAG, "message received is: " + messageReceived)
+        receivedMessageTextView.text = messageReceived
+    }
 
     lateinit var button: Button
     lateinit var receivedMessageTextView: TextView
@@ -17,17 +31,4 @@ class MainActivity : AppCompatActivity(), OtherActivity.PassedMessage {
         val TAG: String = "my_tag"
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        button = findViewById(R.id.button)
-        receivedMessageTextView = findViewById(R.id.received_message_text_view)
-        button.setOnClickListener { startActivity(Intent(this@MainActivity, OtherActivity::class.java)) }
-    }
-
-    override fun messagePassedIs(messageReceived: String) {
-        //on receiving the message, set it on receivedMessageTextView
-        Log.d(TAG, "message received is: " + messageReceived)
-        receivedMessageTextView.text = messageReceived
-    }
 }
